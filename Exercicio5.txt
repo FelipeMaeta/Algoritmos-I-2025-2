@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+                Scanner entrada = new Scanner(System.in);
+                System.out.println("\nSelecione uma das opção abaixo");
+                System.out.println("M para calcular a média entre os números.");
+                System.out.println("S para calcular a diferença do número maior pelo menor.");
+                System.out.println("P para calcular o produto entre os números.  ");
+                System.out.println("D para calcular a  divisão do primeiro número pelo segundo número. ");
+                System.out.print("Opção: ");
+                char plano = entrada.next().toUpperCase().charAt(0);
+                System.out.println("Digite o primeiro número: ");
+                double numero1 = entrada.nextDouble();
+                System.out.println("Digite o segundo número: ");
+                double numero2 = entrada.nextDouble();
+                double calculo =0.0;
+                switch (plano) {
+                    case 'M':
+                        calculo = (numero1 + numero2) / 2;
+                        break;
+                    case 'S':
+                        if (numero1 > numero2) {
+                            calculo = numero1 - numero2;
+                        } else {
+                            calculo = numero2 - numero1;
+                        }
+                        break;
+                    case 'P':
+                        calculo = numero1 * numero2;
+                        break;
+                    case 'D':
+                        if (numero2 != 0) {
+                            calculo = numero1 / numero2;
+                        } else {
+                            System.out.println("Erro: Não é possível dividir por zero.");
+                            entrada.close();
+                            return;
+                        }
+                        break;
+                    default:
+                        System.out.println("Opção inválida.");
+                        entrada.close();
+                        return;
+                }
+                System.out.println("O resultado do cálculo é: " + calculo);
+                entrada.close();
+            }
+        }

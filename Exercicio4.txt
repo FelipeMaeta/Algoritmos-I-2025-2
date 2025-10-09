@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+                Scanner entrada = new Scanner(System.in);
+                System.out.print("Qual o salario do funcionario ? ");
+                double salario = entrada.nextDouble();
+                System.out.print("Digite o plano do funcionario (A, B ou C): ");
+                System.out.println(" ");
+                System.out.println("A");
+                System.out.println("B");
+                System.out.println("C");
+                char plano = entrada.next().toUpperCase().charAt(0);
+                double salarioCorrigido = salario;
+                boolean planoInvalido = false;
+                switch (plano) {
+                    case 'A':
+                        salarioCorrigido = salario+salario *.10;
+                        break;
+                    case 'B':
+                        salarioCorrigido = salario+salario*.15;
+                        break;
+                    case 'C':
+                        salarioCorrigido = salario+salario*.20;
+                        break;
+                    default:
+                        planoInvalido = true;
+                        break;
+                }
+                 if (planoInvalido) {
+                     System.out.println("Plano Invalido .");
+                 } else {
+                     System.out.println("O salário corrigido é: R$" + salarioCorrigido);
+                 }
+                entrada.close();
+            }
+        }

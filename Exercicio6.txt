@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.00");
+        System.out.println("-------------------------------------");
+        System.out.println("      CARDÁPIO DA LANCHONETE         ");
+        System.out.println("-------------------------------------");
+        System.out.println(" Código |    Produto       | Preço  ");
+        System.out.println("  100   | Cachorro Quente  | R$ 1,20");
+        System.out.println("  101   | Bauru Simples    | R$ 1,30");
+        System.out.println("  102   | Bauru com ovo    | R$ 1,50");
+        System.out.println("  103   | Hambúrguer       | R$ 1,20");
+        System.out.println("  104   | Cheeseburguer    | R$ 1,30");
+        System.out.println("  105   | Refrigerante     | R$ 1,00");
+        System.out.println("-------------------------------------------------");
+        System.out.print("\nDigite o código do produto desejado: ");
+        int codigo = entrada.nextInt();
+        System.out.print("Digite a quantidade: ");
+        int quantidade = entrada.nextInt();
+        double precoUnitario = 0.0;
+        String nomeProduto = "";
+        switch (codigo) {
+            case 100:
+                precoUnitario = 1.20;
+                nomeProduto = "Cachorro Quente";
+                break;
+            case 101:
+                precoUnitario = 1.30;
+                nomeProduto = "Bauru Simples";
+                break;
+            case 102:
+                precoUnitario = 1.50;
+                nomeProduto = "Bauru com ovo";
+                break;
+            case 103:
+                precoUnitario = 1.20;
+                nomeProduto = "Hambúrguer";
+                break;
+            case 104:
+                precoUnitario = 1.30;
+                nomeProduto = "Cheeseburguer";
+                break;
+            case 105:
+                precoUnitario = 1.00;
+                nomeProduto = "Refrigerante";
+                break;
+                default:
+                System.out.println("\nERRO: Código de produto inválido.");
+                entrada.close();
+                return;
+        }
+                double valorTotal = precoUnitario * quantidade;
+        System.out.println("\n-------------------------------------------------");
+        System.out.println("Produto: " + nomeProduto);
+        System.out.println("Quantidade: " + quantidade);
+        System.out.println("Valor total a ser pago: R$ " + df.format(valorTotal));
+        System.out.println("-------------------------------------------------");
+        entrada.close();
+    }
+}
